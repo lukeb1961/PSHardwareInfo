@@ -16,6 +16,7 @@ $moduleSettings = @{
     RootModule         = 'PSHardwareInfo.dll'
     RequiredAssemblies = 'Hardware.Info.dll'
     CmdletsToExport    = 'Get-HardwareInfo'
+    AliasesToExport    = 'ghi'
     Path               = "$ModuleFolder\PSHardwareInfo.psd1"
   }
 New-ModuleManifest  @moduleSettings

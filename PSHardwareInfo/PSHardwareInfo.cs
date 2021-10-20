@@ -6,6 +6,7 @@ using Hardware.Info;
 namespace PSHardwareInfo
 {
     [Cmdlet(VerbsCommon.Get, "HardwareInfo")]
+    [Alias("ghi")]
     [OutputType(typeof(HardwareInfo))]
     public class GetHardwareInfoCmdLet : Cmdlet
     {
