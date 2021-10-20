@@ -8,18 +8,18 @@ if (-NOT (Test-Path -Path $ModuleFolder)) {
 }
 
 # create module manifest
-if (-NOT (Test-Path -Path "$ModuleFolder\PSHardwareInfo.psd1")) {
+if (Test-Path -Path "$ModuleFolder\PSHardwareInfo.psd1") {Remove-Item -Path "$ModuleFolder\PSHardwareInfo.psd1" -Force}
 
-  $moduleSettings = @{
+$moduleSettings = @{
     Author             = 'ThisUser'
     CopyRight          = '(c) ThisUser. No rights reserved.'
+    RootModule         = 'PSHardwareInfo.dll'
     RequiredAssemblies = 'Hardware.Info.dll'
-    NestedModules      = '.\PSHardwareInfo.dll'
     CmdletsToExport    = 'Get-HardwareInfo'
     Path               = "$ModuleFolder\PSHardwareInfo.psd1"
   }
-  New-ModuleManifest  @moduleSettings
-}
+New-ModuleManifest  @moduleSettings
+
 
 # update the DLLs in the Module folder
 $DLLs=(Get-ChildItem -Path .\PSHardwareInfo\bin\Debug\netstandard2.0 -Filter '*.dll' -Recurse).FullName
