@@ -1,6 +1,7 @@
 #New-PSmodule.ps1
 
 $ModuleFolder = '.\PSHardwareInfoModule'
+$GUID = 'b0704441-695f-487f-8941-175c3b69c2d6'
 
 # create sub-folder for Module
 if (-NOT (Test-Path -Path $ModuleFolder)) {
@@ -11,6 +12,7 @@ if (-NOT (Test-Path -Path $ModuleFolder)) {
 if (Test-Path -Path "$ModuleFolder\PSHardwareInfo.psd1") {Remove-Item -Path "$ModuleFolder\PSHardwareInfo.psd1" -Force}
 
 $moduleSettings = @{
+    Guid               = $GUID
     Author             = 'ThisUser'
     CopyRight          = '(c) ThisUser. No rights reserved.'
     RootModule         = 'PSHardwareInfo.dll'
