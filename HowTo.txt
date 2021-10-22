@@ -2,32 +2,46 @@ HOWTO
 
 1.
  git clone https://github.com/lukeb1961/PSHardwareInfo.git
- CD .\PSHardwareInfo
+ cd .\PSHardwareInfo
 
 2.
+ if you wish to simply deploy the module, then using an Admin Powershell, run 
+ .\Install-PSmodule.ps1
+
+3.
+ if you wish to build things, you will want to have the DotNet 5 SDK installed
+  https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-5.0.402-windows-x64-installer
+  there are two key libraries
+   NETStandard.Library
+   PowershellStandard.library
+      
+4.
 # synch down the Hardware.Info repository
  git submodule init
  git submodule update
 
-3.
-cd Hardware.Info and compile Hardware.Info.sln using dotnet build Hardware.Info.sln (or VS2022)
-this generates the DLL that does all the work
-
-4.
-compile PSHardwareInfo.sln using dotnet build PSHardwareInfo.sln (or VS2022)
-this generates the DLL that is the PowerShell cmdlet.
-
 5.
-using a Powershell session 
-create the module manifest and copy the dlls.
-.\New-PSmodule.ps1
+ cd Hardware.Info and compile Hardware.Info.sln using 
+ dotnet build Hardware.Info.sln (or use VS2022)
+ this generates the DLL that does all the work
 
 6.
-then deploy the Powershell module, using 
-.\Install-PSmodule.ps1
+ cd ..
+ compile PSHardwareInfo.sln using 
+ dotnet build PSHardwareInfo.sln (or use VS2022)
+ this generates the DLL that is the PowerShell cmdlet.
 
 7.
-at this point, you should be able to
-PS> Import-Module PSHardwareInfo
-PS> Get-HardwareInfo
+ using a Powershell session 
+ create the new module manifest and copy the new dlls.
+ PS> .\New-PSmodule.ps1
+
+8.
+ deploy the updated module, by using an Admin Powershell
+ PS> .\Install-PSmodule.ps1
+
+7.
+ at this point, you should be able to
+ PS> Import-Module PSHardwareInfo
+ PS> Get-HardwareInfo
 
