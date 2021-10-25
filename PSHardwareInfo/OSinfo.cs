@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Globalization;
 
 namespace OS.Info
 {
@@ -56,6 +57,7 @@ namespace OS.Info
             dotnet.upTime = TimeSpan.FromMilliseconds(Environment.TickCount);
             dotnet.lastBootUpTime = DateTime.Now.Subtract(dotnet.upTime);
             dotnet.FrameworkDescription = RuntimeInformation.FrameworkDescription;
+            dotnet.CurrentCulture = CultureInfo.CurrentCulture;
 
             string OStype = "FreeBSD";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) { OStype = "Windows"; }
@@ -84,6 +86,7 @@ namespace OS.Info
         public Architecture processArchitecture { get; set; }
         public int SystemPageSize { get; set; }
         public string? FrameworkDescription { get; set; }
+        public CultureInfo? CurrentCulture { get; set; }
 
         public override string ToString()
         {
@@ -100,7 +103,8 @@ namespace OS.Info
                 "architecture: " + architecture + Environment.NewLine +
                 "processArchitecture: " + processArchitecture + Environment.NewLine +
                 "SystemPageSize:" + SystemPageSize + Environment.NewLine +
-                "Framework:" + FrameworkDescription + Environment.NewLine;
+                "Framework:" + FrameworkDescription + Environment.NewLine +
+                "CurrentCulture:" + CurrentCulture + Environment.NewLine;
         }
     }
 

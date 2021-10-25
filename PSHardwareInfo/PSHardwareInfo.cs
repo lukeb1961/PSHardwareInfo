@@ -14,7 +14,6 @@ namespace PSHardwareInfo
         protected override void BeginProcessing()
         {
             HardwareInfo HardwareInfo = new HardwareInfo();
-
             HardwareInfo.RefreshAll();
 
             WriteObject(HardwareInfo);
