@@ -37,7 +37,7 @@ namespace OS.Info
 
     }
 
-    internal class OSinfoRetrieval
+    internal class OSinfoRetrieval : IOSinfoRetrieval
     {
         public List<DotNet> GetDotNetList()
         {
