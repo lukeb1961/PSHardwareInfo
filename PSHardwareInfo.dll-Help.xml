@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems xmlns="http://msh" schema="maml">
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+<command:details>
+<command:name>Get-HardwareInfo</command:name>
+<maml:description>
+<maml:para>Get hardware related info of the Windows/Linux/OSX machine</maml:para>
+</maml:description>
+<command:verb>Get</command:verb>
+<command:noun>HardwareInfo</command:noun>
+</command:details>
+<maml:description>
+<maml:para>leverages Hardware.Info to return info on Windows/Linux/OSX</maml:para>
+</maml:description>
+<command:syntax>
+<command:syntaxItem>
+<maml:name>Get-HardwareInfo</maml:name>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters>
+</command:parameters>
+<command:inputTypes>
+<command:inputType>
+<dev:type>
+</dev:type>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues>
+<command:returnValue>
+<dev:type>
+<maml:name>Hardware.Info.HardwareInfo</maml:name>
+</dev:type>
+</command:returnValue>
+</command:returnValues>
+<command:examples>
+<command:example>
+<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>$HWI=Get-HardwareInfo
+$HWI.BiosList.Manufacturer
+$HWI.MotherboardList</dev:code>
+</command:example>
+</command:examples>
+<maml:relatedLinks>
+<maml:navigationLink>
+<maml:linkText>Github source</maml:linkText>
+<maml:uri>https://github.com/Jinjinov/Hardware.Info</maml:uri>
+</maml:navigationLink>
+</maml:relatedLinks>
+</command:command>
+<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10">
+<command:details>
+<command:name>Get-OSInfo</command:name>
+<maml:description>
+<maml:para>lGet operating system information related info of the Windows/Linux/OSX machine</maml:para>
+</maml:description>
+<command:verb>Get</command:verb>
+<command:noun>OSInfo</command:noun>
+</command:details>
+<maml:description>
+<maml:para>leverages OS.Info to return info on Windows/Linux/OSX</maml:para>
+</maml:description>
+<command:syntax>
+<command:syntaxItem>
+<maml:name>Get-OSInfo</maml:name>
+</command:syntaxItem>
+</command:syntax>
+<command:parameters>
+</command:parameters>
+<command:inputTypes>
+<command:inputType>
+<dev:type>
+</dev:type>
+</command:inputType>
+</command:inputTypes>
+<command:returnValues>
+<command:returnValue>
+<dev:type>
+<maml:name>OS.Info.OSinfo</maml:name>
+</dev:type>
+</command:returnValue>
+</command:returnValues>
+<command:examples>
+<command:example>
+<maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+<dev:code>$OSI=Get-OSInfo
+$OSI.DotNetList
+</dev:code>
+</command:example>
+</command:examples>
+<maml:relatedLinks>
+<maml:navigationLink>
+<maml:linkText>Github source</maml:linkText>
+<maml:uri>https://github.com/lukeb1961/PSHardwareInfo</maml:uri>
+</maml:navigationLink>
+</maml:relatedLinks>
+</command:command>
+</helpItems>

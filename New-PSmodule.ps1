@@ -25,6 +25,8 @@ $moduleSettings = @{
   }
 New-ModuleManifest  @moduleSettings
 
+if (Test-Path -Path "$ModuleFolder\PSHardwareInfo.dll-Help.xml") {Remove-Item -Path "$ModuleFolder\PSHardwareInfo.dll-Help.xml" -Force}
+Copy-Item -Path .\PSHardwareInfo.dll-Help.xml  -Destination $ModuleFolder
 
 # update the DLLs in the Module folder
 $DLLs=(Get-ChildItem -Path .\PSHardwareInfo\bin\Debug\netstandard2.0 -Filter '*.dll' -Recurse).FullName
